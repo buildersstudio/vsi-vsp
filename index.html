@@ -3658,9 +3658,106 @@
     max-width: 280px;
   }
 
+  /* ── Zoom control ── */
+  .zoom-control {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    padding: 4px 6px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+    opacity: 0.5;
+    transition: opacity 0.2s;
+  }
+
+  .zoom-control:hover { opacity: 1; }
+
+  .zoom-btn {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+    background: none;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.15s;
+    line-height: 1;
+  }
+
+  .zoom-btn:hover {
+    background: #f0f0f0;
+    color: #000;
+  }
+
+  .zoom-btn:active {
+    background: #e5e5e5;
+  }
+
+  .zoom-level {
+    font-size: 11px;
+    font-weight: 600;
+    color: #333;
+    min-width: 34px;
+    text-align: center;
+    user-select: none;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── Dark mode ── */
+  html[data-theme="dark"] {
+    filter: invert(1) hue-rotate(180deg);
+    background: #000;
+  }
+
+  html[data-theme="dark"] img,
+  html[data-theme="dark"] svg,
+  html[data-theme="dark"] video {
+    filter: invert(1) hue-rotate(180deg);
+  }
+
+  html[data-theme="dark"] .zoom-control {
+    filter: invert(1) hue-rotate(180deg);
+  }
+
+  .zoom-divider {
+    width: 1px;
+    height: 16px;
+    background: #e0e0e0;
+    margin: 0 4px;
+  }
+
+  .theme-btn {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    background: none;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.15s;
+    line-height: 1;
+  }
+
+  .theme-btn:hover { background: #f0f0f0; }
+
   @media (max-width: 768px) {
     .mobile-gate { display: flex; }
     .page { display: none; }
+    .zoom-control { display: none; }
   }
 
 </style>
@@ -3675,6 +3772,14 @@
   </svg>
   <h2>VSI × Van Spaendonck</h2>
   <p>This document is designed for desktop. Please open it on a laptop or desktop for the best experience.</p>
+</div>
+
+<div class="zoom-control">
+  <button class="theme-btn" onclick="toggleTheme()" title="Toggle dark mode">🌙</button>
+  <div class="zoom-divider"></div>
+  <button class="zoom-btn" onclick="stepZoom(-1)">−</button>
+  <span class="zoom-level">100%</span>
+  <button class="zoom-btn" onclick="stepZoom(1)">+</button>
 </div>
 
 <div class="page">
@@ -4715,6 +4820,22 @@
     });
   });
 })();
+
+var isDark = false;
+function toggleTheme() {
+  isDark = !isDark;
+  document.documentElement.setAttribute('data-theme', isDark ? 'dark' : '');
+  document.querySelector('.theme-btn').textContent = isDark ? '☀️' : '🌙';
+}
+
+var zoomSteps = [100, 110, 125];
+var zoomIndex = 0;
+function stepZoom(dir) {
+  zoomIndex = Math.max(0, Math.min(zoomSteps.length - 1, zoomIndex + dir));
+  var level = zoomSteps[zoomIndex];
+  document.querySelector('.page').style.zoom = level / 100;
+  document.querySelector('.zoom-level').textContent = level + '%';
+}
 </script>
 </body>
 </html>
