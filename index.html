@@ -3628,69 +3628,53 @@
   .e-badge-0 { background: #f0f0f0; color: #999; }
   .e-badge-5 { background: #000; color: #fff; }
 
-  /* ── Memo people ── */
-  .memo-people {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 32px;
-    margin-top: 24px;
-    padding-top: 20px;
-    border-top: 1px solid #f0f0f0;
-  }
-
-  .memo-side {
+  /* ── People margin note ── */
+  .people-rail {
+    position: absolute;
+    top: 56px;
+    right: max(16px, calc((100vw - 960px) / 2 - 210px));
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    gap: 20px;
+    width: 180px;
   }
 
-  .memo-label {
-    font-size: 10px;
+  .hp-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .hp-label {
+    font-size: 9px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #bbb;
+    color: #999;
   }
 
-  .memo-stack {
+  .hp-person {
     display: flex;
     align-items: center;
+    gap: 8px;
   }
 
-  .memo-stack .memo-avatar {
-    margin-left: -8px;
-  }
-
-  .memo-stack .memo-avatar:first-child {
-    margin-left: 0;
-  }
-
-  .memo-avatar {
-    width: 40px;
-    height: 40px;
+  .hp-person img {
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #fff;
-    position: relative;
   }
 
-  .memo-names {
-    display: flex;
-    gap: 4px;
-    font-size: 12px;
-    color: #777;
+  .hp-name {
+    font-size: 13px;
+    color: #555;
+    white-space: nowrap;
+    text-decoration: none;
+    cursor: pointer;
   }
 
-  .memo-names span { white-space: nowrap; }
-
-  .memo-sep {
-    font-size: 18px;
-    font-weight: 300;
-    color: #ddd;
-    padding: 0 4px;
-  }
+  a.hp-name:hover { color: #000; }
 
   /* ── Mobile gate ── */
   .mobile-gate {
@@ -3822,6 +3806,7 @@
     .mobile-gate { display: flex; }
     .page { display: none; }
     .zoom-control { display: none; }
+    .people-rail { display: none; }
   }
 
 </style>
@@ -3846,6 +3831,35 @@
   <button class="zoom-btn" onclick="stepZoom(1)">+</button>
 </div>
 
+<div class="people-rail">
+  <div class="hp-group">
+    <div class="hp-label">Builders</div>
+    <div class="hp-person">
+      <img src="https://cdn.prod.website-files.com/6086d808b3eac64076fe25eb/68778ffafcd644c7b9010545_Michael%20Van%20Lier%201x.avif" alt="Michael van Lier">
+      <a class="hp-name" href="https://www.linkedin.com/in/michaelvanlier/" target="_blank" rel="noopener">Michael van Lier</a>
+    </div>
+    <div class="hp-person">
+      <img src="https://cdn.prod.website-files.com/6086d808b3eac64076fe25eb/6877901e32f5c86b7c2d17a4_Sharon%20Klaver.avif" alt="Sharon Klaver">
+      <a class="hp-name" href="https://www.linkedin.com/in/sharonklaver/" target="_blank" rel="noopener">Sharon Klaver</a>
+    </div>
+  </div>
+  <div class="hp-group">
+    <div class="hp-label">Van Spaendonck</div>
+    <div class="hp-person">
+      <img src="jeroen.jpeg" alt="Jeroen de Heer">
+      <a class="hp-name" href="https://www.linkedin.com/in/jeroendeheer1/" target="_blank" rel="noopener">Jeroen de Heer</a>
+    </div>
+    <div class="hp-person">
+      <img src="maarten.jpeg" alt="Maarten van Ierschot">
+      <a class="hp-name" href="https://www.linkedin.com/in/maartenvanierschot" target="_blank" rel="noopener">Maarten van Ierschot</a>
+    </div>
+    <div class="hp-person">
+      <img src="erik.jpeg" alt="Erik Snels">
+      <a class="hp-name" href="https://www.linkedin.com/in/eriksnels/" target="_blank" rel="noopener">Erik Snels</a>
+    </div>
+  </div>
+</div>
+
 <div class="page">
 
   <!-- ═══ HEADER ═══ -->
@@ -3855,29 +3869,6 @@
       <div class="conf">February 2026<br>Confidential</div>
     </div>
     <div class="tagline">This document is our understanding of how Van Spaendonck works, the challenges your innovation team faces, and how VSI, our venture intelligence platform, becomes the digital brain for every innovation project you run. It's a starting point for conversation, not a finished contract.</div>
-
-    <div class="memo-people">
-      <div class="memo-side">
-        <div class="memo-label">Builders</div>
-        <div class="memo-stack">
-          <img class="memo-avatar" src="https://cdn.prod.website-files.com/6086d808b3eac64076fe25eb/68778ffafcd644c7b9010545_Michael%20Van%20Lier%201x.avif" alt="Michael van Lier">
-          <img class="memo-avatar" src="https://cdn.prod.website-files.com/6086d808b3eac64076fe25eb/6877901e32f5c86b7c2d17a4_Sharon%20Klaver.avif" alt="Sharon Klaver">
-        </div>
-        <div class="memo-names"><span>Michael</span><span>·</span><span>Sharon</span></div>
-      </div>
-
-      <div class="memo-sep">×</div>
-
-      <div class="memo-side">
-        <div class="memo-label">Van Spaendonck</div>
-        <div class="memo-stack">
-          <img class="memo-avatar" src="jeroen.jpeg" alt="Jeroen de Heer">
-          <img class="memo-avatar" src="maarten.jpeg" alt="Maarten van Ierschot">
-          <img class="memo-avatar" src="erik.jpeg" alt="Erik Snels">
-        </div>
-        <div class="memo-names"><span>Jeroen</span><span>·</span><span>Maarten</span><span>·</span><span>Erik</span></div>
-      </div>
-    </div>
   </div>
 
   <!-- ═══ VAN SPAENDONCK ═══ -->
