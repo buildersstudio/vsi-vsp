@@ -3628,9 +3628,55 @@
   .e-badge-0 { background: #f0f0f0; color: #999; }
   .e-badge-5 { background: #000; color: #fff; }
 
+  /* ── Mobile gate ── */
+  .mobile-gate {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #f7f7f8;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+  }
+
+  .mobile-gate svg { margin-bottom: 24px; }
+
+  .mobile-gate h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 8px;
+  }
+
+  .mobile-gate p {
+    font-size: 15px;
+    color: #777;
+    line-height: 1.6;
+    max-width: 280px;
+  }
+
+  @media (max-width: 768px) {
+    .mobile-gate { display: flex; }
+    .page { display: none; }
+  }
+
 </style>
 </head>
 <body>
+
+<div class="mobile-gate">
+  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 32 32">
+    <defs><linearGradient id="mg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#3B82F6"/><stop offset="100%" stop-color="#8B5CF6"/></linearGradient></defs>
+    <rect width="32" height="32" rx="7" fill="url(#mg)"/>
+    <path d="M5 16 L9 16 L11 10 L14 22 L17 8 L20 20 L23 16 L27 16" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <h2>VSI × Van Spaendonck</h2>
+  <p>This document is designed for desktop. Please open it on a laptop or desktop for the best experience.</p>
+</div>
+
 <div class="page">
 
   <!-- ═══ HEADER ═══ -->
@@ -3668,7 +3714,7 @@
     <p class="prose">The innovation team is deliberately small. They validate ideas, run customer conversations, and build business cases. The data team sits alongside them, providing analytical horsepower from a salary slip dataset of millions per month.</p>
 
     <div class="section-subtitle">Phase 1: Exploration Sprint</div>
-    <p class="prose">Each innovation project starts as a time-boxed exploration with a budget ceiling and a hard time limit. The team follows a Power Law portfolio model: most ideas will fail, a few will be home runs. The critical gate before any development begins is to <span class="hl">sign up a launching customer</span>. Within the sprint, the team aims to validate through 40 to 100 customer conversations to generate the data that informs the proposition.</p>
+    <p class="prose">Each innovation project starts as a time-boxed exploration with a budget ceiling and a hard time limit. The team follows a Power Law portfolio model: most ideas will fail, a few will be home runs. The critical gate before any development begins is to <span class="hl">sign up a launching customer</span>. Within the sprint, the team runs customer conversations to generate the data that informs the proposition. Our experience suggests 40 to 100 conversations per sprint to reach decision-grade confidence.</p>
 
     <div class="section-subtitle">Phase 2: Home Runs</div>
     <p class="prose">Projects that survive Phase 1 move into a longer MVP phase. Maarten mentioned a horizon of six to eighteen months, with budgets scaling into the hundreds of thousands. If an idea isn't validated within the 3-month sprint window, it's killed. The exact funding structure for this phase is something we'd want to understand better.</p>
@@ -3731,7 +3777,9 @@
     <div class="section-label">The Solution</div>
     <div class="section-title" style="margin-bottom: 12px;">Introducing VSI</div>
 
-    <p class="prose">VSI is a venture intelligence platform built by <a href="https://www.builders.studio/" target="_blank" rel="noopener" style="color: #000; text-decoration: underline; text-underline-offset: 3px;">Builders</a>. Not a dashboard, not a CRM, not a consulting toolkit. An intelligence system that becomes the <span class="hl">digital brain</span> for every project: capturing everything during discovery, structuring it into evidence-graded intelligence, and keeping it alive through handover and beyond.</p>
+    <p class="prose">VSI is a venture intelligence platform built by <a href="https://www.builders.studio/" target="_blank" rel="noopener" style="color: #000; text-decoration: underline; text-underline-offset: 3px;">Builders</a>, a NL-based venture studio that builds enterprise AI companies from day zero. We've built, funded, and scaled four ventures across the future of work. VSI is the system we built to run our own discovery and build process.</p>
+
+    <p class="prose">Not a dashboard, not a CRM, not a consulting toolkit. An intelligence system that becomes the <span class="hl">digital brain</span> for every project: capturing everything during discovery, structuring it into evidence-graded intelligence, and keeping it alive through handover and beyond.</p>
 
     <p class="prose">Each project gets its own workspace. The intelligence compounds with every conversation, every document, every decision.</p>
   </div>
@@ -4569,7 +4617,7 @@
     <div class="section-label">Action</div>
     <div class="section-title">Next Steps</div>
 
-    <p class="prose" style="margin-bottom: 24px;">Builders is taking on a maximum of two corporate partnerships in 2026. This ensures each partner gets real attention, not a scaled playbook. We'd like Van Spaendonck to be one of them.</p>
+    <p class="prose" style="margin-bottom: 24px;">Builders is taking on two corporate partnerships in 2026, both starting before summer. This ensures each partner gets real attention, not a scaled playbook. We'd like Van Spaendonck to be one of them.</p>
 
     <table class="steps-table">
       <thead>
