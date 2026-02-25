@@ -3628,6 +3628,70 @@
   .e-badge-0 { background: #f0f0f0; color: #999; }
   .e-badge-5 { background: #000; color: #fff; }
 
+  /* ── Memo people ── */
+  .memo-people {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #f0f0f0;
+  }
+
+  .memo-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .memo-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #bbb;
+  }
+
+  .memo-stack {
+    display: flex;
+    align-items: center;
+  }
+
+  .memo-stack .memo-avatar {
+    margin-left: -8px;
+  }
+
+  .memo-stack .memo-avatar:first-child {
+    margin-left: 0;
+  }
+
+  .memo-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    position: relative;
+  }
+
+  .memo-names {
+    display: flex;
+    gap: 4px;
+    font-size: 12px;
+    color: #777;
+  }
+
+  .memo-names span { white-space: nowrap; }
+
+  .memo-sep {
+    font-size: 18px;
+    font-weight: 300;
+    color: #ddd;
+    padding: 0 4px;
+  }
+
   /* ── Mobile gate ── */
   .mobile-gate {
     display: none;
@@ -3791,6 +3855,29 @@
       <div class="conf">February 2026<br>Confidential</div>
     </div>
     <div class="tagline">This document is our understanding of how Van Spaendonck works, the challenges your innovation team faces, and how VSI, our venture intelligence platform, becomes the digital brain for every innovation project you run. It's a starting point for conversation, not a finished contract.</div>
+
+    <div class="memo-people">
+      <div class="memo-side">
+        <div class="memo-label">Builders</div>
+        <div class="memo-stack">
+          <img class="memo-avatar" src="https://cdn.prod.website-files.com/6086d808b3eac64076fe25eb/68778ffafcd644c7b9010545_Michael%20Van%20Lier%201x.avif" alt="Michael van Lier">
+          <img class="memo-avatar" src="https://cdn.prod.website-files.com/6086d808b3eac64076fe25eb/6877901e32f5c86b7c2d17a4_Sharon%20Klaver.avif" alt="Sharon Klaver">
+        </div>
+        <div class="memo-names"><span>Michael</span><span>·</span><span>Sharon</span></div>
+      </div>
+
+      <div class="memo-sep">×</div>
+
+      <div class="memo-side">
+        <div class="memo-label">Van Spaendonck</div>
+        <div class="memo-stack">
+          <img class="memo-avatar" src="jeroen.jpeg" alt="Jeroen de Heer">
+          <img class="memo-avatar" src="maarten.jpeg" alt="Maarten van Ierschot">
+          <img class="memo-avatar" src="erik.jpeg" alt="Erik Snels">
+        </div>
+        <div class="memo-names"><span>Jeroen</span><span>·</span><span>Maarten</span><span>·</span><span>Erik</span></div>
+      </div>
+    </div>
   </div>
 
   <!-- ═══ VAN SPAENDONCK ═══ -->
